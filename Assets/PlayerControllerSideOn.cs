@@ -109,7 +109,7 @@ public class PlayerControllerSideOn : MonoBehaviour
         if (collision.gameObject.CompareTag("Switch"))
         {
             SceneSwitcher.Instance.CheckAndLoadScene();
-            DontDestroyOnLoad(gameObject);
+           // DontDestroyOnLoad(gameObject);
         }
 
     }

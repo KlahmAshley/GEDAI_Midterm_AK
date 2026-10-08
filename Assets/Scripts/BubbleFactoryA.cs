@@ -1,16 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class BubbleFactoryA : MonoBehaviour
+public class BubbleFactoryA : Factory
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private BubbleA productPrefab;
 
-    // Update is called once per frame
-    void Update()
+    public override IBubble GetBubble(Vector3 position)
     {
-        
+        // create a Prefab instance and get the product component
+        GameObject instance = Instantiate(productPrefab.gameObject, position, Quaternion.identity);
+        BubbleA newBubble = instance.GetComponent<BubbleA>();
+
+        // each product contains its own logic
+        newBubble.Initialize();
+
+       return newBubble;
     }
 }

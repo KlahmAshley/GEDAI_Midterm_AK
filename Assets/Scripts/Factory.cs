@@ -1,16 +1,6 @@
 using UnityEngine;
 
-public class Factory : MonoBehaviour
+public abstract class Factory : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract IBubble GetBubble(Vector3 position);
 }
